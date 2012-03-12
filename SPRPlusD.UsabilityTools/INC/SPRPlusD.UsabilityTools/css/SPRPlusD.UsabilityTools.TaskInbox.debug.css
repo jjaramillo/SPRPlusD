@@ -47,19 +47,27 @@
     position: fixed;
     top: 50%;
     color: white;
-    background-color: black;
-    border-color: white;
-    border-width: 5px;
-    border-style: solid;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+    /*border-color: white;
+    border-width: 2px;
+    border-style: solid;*/
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
     cursor: pointer;
-    font-family: 'Prosto One' , cursive;
-    padding-left: 10px;
-    padding-right: 10px;
+    font-family:  'Allerta' , Helvetica, Arial, sans-serif !important;
+    font-size:30px;
+    background-color: #393939;
+    background-image: -moz-linear-gradient(center top , #454545, #262626);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-radius: 4px 4px 0px 0px;
+    border-style: solid;
+    border-width: 1px 1px 0 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    min-width:300px;
+    text-align:center;
 }
 #task-categories-tabs
 {
