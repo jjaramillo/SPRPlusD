@@ -13,8 +13,7 @@ namespace SPRPlusD.UsabilityTools.WebParts.TaskInbox
     public class TaskInbox : WebPart
     {
         // Visual Studio might automatically update this path when you change the Visual Web Part project item.
-        private const string _ascxPath = @"~/_CONTROLTEMPLATES/SPRPlusD.UsabilityTools/TaskInbox/TaskInboxUserControl.ascx";
-        private const string _ascxConfigPath = @"~/_CONTROLTEMPLATES/SPRPlusD.UsabilityTools/TaskInbox/TaskInboxConfigUserControl.ascx";
+        private const string _ascxPath = @"~/_CONTROLTEMPLATES/SPRPlusD.UsabilityTools.WebParts/TaskInbox/TaskInboxUserControl.ascx";
 
         protected override void CreateChildControls()
         {
