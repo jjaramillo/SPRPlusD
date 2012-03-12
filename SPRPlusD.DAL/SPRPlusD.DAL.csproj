@@ -51,12 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\SPListDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RDDataContext.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataTransferObjects\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="..\SPRPlusD.UsabilityTools\key.snk">
       <Link>key.snk</Link>

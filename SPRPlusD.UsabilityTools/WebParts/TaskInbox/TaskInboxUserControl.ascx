@@ -50,6 +50,6 @@
     </div>
     <div id="inbox-trigger">
         <span id="inbox-trigger-open">Mis Tareas</span> <span id="inbox-trigger-close" class="hidden">
-            Cerrar mis Tareas</span>
+            Cerrar Mis Tareas</span>
     </div>
 </div>

@@ -53,6 +53,14 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\SiteBLL.cs" />
+    <Compile Include="ControlTemplates\SPRPlusD.UsabilityTools.ToolParts\ListSelection\ListSelectionUserControl.ascx.cs">
+      <DependentUpon>ListSelectionUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\SPRPlusD.UsabilityTools.ToolParts\ListSelection\ListSelectionUserControl.ascx.designer.cs">
+      <DependentUpon>ListSelectionUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlTemplates\SPRPlusD.UsabilityTools.WebParts\TaskInbox\TaskInboxConfigUserControl.ascx.cs">
       <DependentUpon>TaskInboxConfigUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -60,6 +68,13 @@
     <Compile Include="ControlTemplates\SPRPlusD.UsabilityTools.WebParts\TaskInbox\TaskInboxConfigUserControl.ascx.designer.cs">
       <DependentUpon>TaskInboxConfigUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomToolParts\ListSelectionToolPart.cs" />
+    <Compile Include="MVP\BasePresenter.cs" />
+    <Compile Include="MVP\IView.cs" />
+    <Compile Include="MVP\ListSelectionToolPart\IListSelectionView.cs" />
+    <Compile Include="MVP\ListSelectionToolPart\ListSelectionPresenter.cs" />
+    <Compile Include="MVP\TaskInbox\ITaskInboxView.cs" />
+    <Compile Include="MVP\TaskInbox\TaskInboxPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebParts\TaskInbox\TaskInbox.cs" />
     <Compile Include="WebParts\TaskInbox\TaskInboxUserControl.ascx.cs">
@@ -100,6 +115,9 @@
     <Folder Include="ISAPI\SPRPlusD.UsabilityTools\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ControlTemplates\SPRPlusD.UsabilityTools.ToolParts\ListSelection\ListSelectionUserControl.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="ControlTemplates\SPRPlusD.UsabilityTools.WebParts\TaskInbox\TaskInboxConfigUserControl.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -107,12 +125,22 @@
       <DependentUpon>SPRPlusD UsabilityTools.feature</DependentUpon>
     </Content>
     <Content Include="INC\SPRPlusD.UsabilityTools\css\SPRPlusD.UsabilityTools.TaskInbox.debug.css" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\tab_b.png" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\tab_l.png" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\tab_m.png" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\tab_r.png" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\task.png" />
     <Content Include="INC\SPRPlusD.UsabilityTools\scripts\SPRPlusD.UsabilityTools.TaskInbox.debug.js" />
     <Content Include="WebParts\TaskInbox\Elements.xml" />
     <Content Include="WebParts\TaskInbox\TaskInboxUserControl.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SPRPlusD.DAL\SPRPlusD.DAL.csproj">
+      <Project>{314B6530-0E47-4A3B-92FA-8908A7265BCC}</Project>
+      <Name>SPRPlusD.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
