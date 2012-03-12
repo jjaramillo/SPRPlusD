@@ -45,15 +45,38 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlTemplates\SPRPlusD.UsabilityTools\TaskInboxConfigUserControl.ascx.cs">
+      <DependentUpon>TaskInboxConfigUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\SPRPlusD.UsabilityTools\TaskInboxConfigUserControl.ascx.designer.cs">
+      <DependentUpon>TaskInboxConfigUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskInbox\TaskInbox.cs" />
+    <Compile Include="TaskInbox\TaskInboxUserControl.ascx.cs">
+      <DependentUpon>TaskInboxUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaskInbox\TaskInboxUserControl.ascx.designer.cs">
+      <DependentUpon>TaskInboxUserControl.ascx.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ControlTemplates\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ea6c58f4-2097-48db-97a9-d0f69d794604}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\SPRPlusD UsabilityTools\SPRPlusD UsabilityTools.feature">
+      <FeatureId>{70df2935-d783-44bf-aa9a-5fc69a6cf2cc}</FeatureId>
+    </None>
     <None Include="ISAPI\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fca1a1c1-4d9c-4f88-8caa-d5f5d0fd3ca8}</SharePointProjectItemId>
     </None>
@@ -64,10 +87,25 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
+    <None Include="TaskInbox\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{391c7869-d38d-49c9-9c4f-874a9b9f132c}</SharePointProjectItemId>
+    </None>
+    <None Include="TaskInbox\TaskInbox.webpart" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\" />
     <Folder Include="ISAPI\SPRPlusD.UsabilityTools\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ControlTemplates\SPRPlusD.UsabilityTools\TaskInboxConfigUserControl.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Features\SPRPlusD UsabilityTools\SPRPlusD UsabilityTools.Template.xml">
+      <DependentUpon>SPRPlusD UsabilityTools.feature</DependentUpon>
+    </Content>
+    <Content Include="TaskInbox\Elements.xml" />
+    <Content Include="TaskInbox\TaskInboxUserControl.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />

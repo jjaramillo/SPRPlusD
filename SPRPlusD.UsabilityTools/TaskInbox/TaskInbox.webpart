@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="SPRPlusD.UsabilityTools.WebParts.TaskInbox, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Quick Task Inbox Webpart</property>
+        <property name="Description" type="string">Quick task inbox that displays the current user's pending and finished tasks.</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

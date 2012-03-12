@@ -1,0 +1,257 @@
+﻿#inbox
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    font: calibri;
+}
+#inbox h1
+{
+    font-family: 'Allerta' , Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    line-height: 55px;
+    background-image: url('../img/task.png');
+    background-repeat: no-repeat;
+    padding-top: 6.5px;
+    padding-bottom: 6.5px;
+    padding-left: 72px;
+}
+#inbox p
+{
+    font-family: 'Crimson Text' , Georgia, Times, serif;
+    font-size: 16px;
+    line-height: 25px;
+}
+#data-container-background
+{
+    width: 0px;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0px;
+}
+#data-container
+{
+    width: 0px;
+    height: 100%;
+    border-right-color: white;
+    border-right-style: solid;
+    border-right-width: 5px;
+    position: absolute;
+    top: 0px;
+}
+#inbox-trigger
+{
+    position: fixed;
+    top: 50%;
+    color: white;
+    background-color: black;
+    border-color: white;
+    border-width: 5px;
+    border-style: solid;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    cursor: pointer;
+    font-family: 'Prosto One' , cursive;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#task-categories-tabs
+{
+    padding: 0px;
+    margin-bottom: 0px;
+}
+#task-categories-tabs li
+{
+    list-style-type: none;
+    display: inline-block;
+}
+#task-tabs div
+{
+    width: 100%;
+    min-height: 50px;
+}
+.hidden
+{
+    display: none;
+}
+.tab
+{
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F5F5F5;
+    background-image: -moz-linear-gradient(center top , #FFFFFF, #E6E6E6);
+    background-repeat: repeat-x;
+    border-color: #CCCCCC #CCCCCC #BBBBBB;
+    border-radius: 4px 4px 0px 0px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 0;
+    padding: 4px 10px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+}
+.tab:hover, .tab:active, .tab.active, .tab.disabled, .tab[disabled]
+{
+    background-color: #E6E6E6;
+}
+.tab:active, .tab.active
+{
+}
+.tab:first-child
+{
+}
+.tab:hover
+{
+    -moz-transition: background-position 0.1s linear 0s;
+    background-color: #E6E6E6;
+    background-position: 0 -15px;
+    color: #333333;
+    text-decoration: none;
+}
+.tab:focus
+{
+    outline: thin dotted #333333;
+    outline-offset: -2px;
+}
+.tab.active, .tab:active
+{
+    background-color: #E6E6E6;
+    background-image: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    outline: 0 none;
+}
+.tab.disabled, .tab[disabled]
+{
+    background-color: #E6E6E6;
+    background-image: none;
+    box-shadow: none;
+    cursor: default;
+    opacity: 0.65;
+}
+.tab-large
+{
+    border-radius: 5px 5px 5px 5px;
+    font-size: 15px;
+    line-height: normal;
+    padding: 9px 14px;
+}
+.tab-large [class^="icon-"]
+{
+    margin-top: 1px;
+}
+.tab-small
+{
+    font-size: 11px;
+    line-height: 16px;
+    padding: 5px 9px;
+}
+.tab-small [class^="icon-"]
+{
+    margin-top: -1px;
+}
+.tab-mini
+{
+    font-size: 11px;
+    line-height: 14px;
+    padding: 2px 6px;
+}
+.tab-primary, .tab-primary:hover, .tab-warning, .tab-warning:hover, .tab-overdue, .tab-overdue:hover, .tab-done, .tab-done:hover, .tab-cool, .tab-cool:hover, .tab-inverse, .tab-inverse:hover
+{
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.tab-primary.active, .tab-warning.active, .tab-overdue.active, .tab-done.active, .tab-cool.active, .tab-dark.active
+{
+    color: rgba(255, 255, 255, 0.75);
+}
+.tab-primary
+{
+    background-color: #006DCC;
+    background-image: -moz-linear-gradient(center top , #0088CC, #0044CC);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.tab-primary:hover, .tab-primary:active, .tab-primary.active, .tab-primary.disabled, .tab-primary[disabled]
+{
+    background-color: #0044CC;
+}
+.tab-primary:active, .tab-primary.active
+{
+}
+.tab-warning, .warning
+{
+    background-color: #FAA732;
+    background-image: -moz-linear-gradient(center top , #FBB450, #F89406);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.tab-warning:hover, .tab-warning:active, .tab-warning.active, .tab-warning.disabled, .tab-warning[disabled]
+{
+    background-color: #F89406;
+}
+.tab-warning:active, .tab-warning.active
+{
+}
+.tab-overdue, .overdue
+{
+    background-color: #DA4F49;
+    background-image: -moz-linear-gradient(center top , #EE5F5B, #BD362F);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.tab-overdue:hover, .tab-overdue:active, .tab-overdue.active, .tab-overdue.disabled, .tab-overdue[disabled]
+{
+    background-color: #BD362F;
+}
+.tab-overdue:active, .tab-overdue.active
+{
+}
+.tab-done, .done
+{
+    background-color: #5BB75B;
+    background-image: -moz-linear-gradient(center top , #62C462, #51A351);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.tab-done:hover, .tab-done:active, .tab-done.active, .tab-done.disabled, .tab-done[disabled]
+{
+    background-color: #51A351;
+}
+.tab-done:active, .tab-done.active
+{
+}
+.tab-cool, .cool
+{
+    background-color: #49AFCD;
+    background-image: -moz-linear-gradient(center top , #5BC0DE, #2F96B4);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.tab-cool:hover, .tab-cool:active, .tab-cool.active, .tab-cool.disabled, .tab-cool[disabled]
+{
+    background-color: #2F96B4;
+}
+.tab-cool:active, .tab-cool.active
+{
+}
+.tab
+{
+    text-decoration: none;
+    font-family: 'Allerta' , Helvetica, Arial, sans-serif;
+    width: 85px;
+}

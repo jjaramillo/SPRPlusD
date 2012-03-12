@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="c2b95d90-054f-41e4-98b2-e0fec4913c31" solutionId="c2b95d90-054f-41e4-98b2-e0fec4913c31" resetWebServer="false" name="SPRPlusD.UsabilityTools" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="70df2935-d783-44bf-aa9a-5fc69a6cf2cc" />
+  </features>
   <projectItems>
     <projectItemReference itemId="fca1a1c1-4d9c-4f88-8caa-d5f5d0fd3ca8" />
+    <projectItemReference itemId="ea6c58f4-2097-48db-97a9-d0f69d794604" />
+    <projectItemReference itemId="024c415a-1c6d-47cc-b463-496268593a2a" />
   </projectItems>
 </package>
