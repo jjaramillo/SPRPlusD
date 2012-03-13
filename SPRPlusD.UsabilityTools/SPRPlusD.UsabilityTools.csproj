@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\SiteBLL.cs" />
+    <Compile Include="BLL\TasksBLL.cs" />
     <Compile Include="ControlTemplates\SPRPlusD.UsabilityTools.ToolParts\ListSelection\ListSelectionUserControl.ascx.cs">
       <DependentUpon>ListSelectionUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
