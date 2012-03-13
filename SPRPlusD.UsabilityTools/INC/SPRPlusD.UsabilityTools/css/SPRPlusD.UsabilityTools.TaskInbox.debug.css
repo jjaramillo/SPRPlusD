@@ -79,7 +79,7 @@
     list-style-type: none;
     display: inline-block;
 }
-#task-tabs div
+#task-tabs .cool, #task-tabs .warning, #task-tabs .overdue, #task-tabs .done
 {
     width: 100%;
     min-height: 50px;
@@ -263,4 +263,14 @@
     text-decoration: none !important;
     font-family: 'Allerta' , Helvetica, Arial, sans-serif !important;
     min-width: 85px;
+}
+.task
+{
+    padding:10px;
+    font-size:20px;
+}
+
+.task h3
+{
+    margin-top:0px;
 }

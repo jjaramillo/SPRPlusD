@@ -44,7 +44,10 @@
                 <div id="cool" class="cool">
                     <asp:Repeater runat="server" ID="rpt_CoolTasks">
                         <ItemTemplate>
-                            <div>
+                            <div class="task">
+                                <h3><asp:Literal runat="server" Text='<%#Bind("Title") %>' ID="ltr_Title"></asp:Literal></h3>
+                                <p><asp:Literal runat="server" ID="ltrl_description"  Text='<%#Bind("Body") %>'></asp:Literal></p>
+                                <p>Esta tarea fue asignada el <asp:Literal runat="server" ID="ltr_StartDate" Text='<%#Bind("StartDate") %>'/> y vence el <asp:Literal runat="server" ID="ltr_DueDate" Text='<%#Bind("DueDate") %>'/></p>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>

@@ -10,9 +10,10 @@ namespace SPRPlusD.UsabilityTools.MVP.TaskInbox
     {
         int CoolDayNumber { get; set; }
         int WarningDayNumber { get; set; }
-        IEnumerable<Task> CoolTasks { get; set; }
-        IEnumerable<Task> WarningTasks { get; set; }
-        IEnumerable<Task> OverdueTasks { get; set; }
-        IEnumerable<Task> DoneTasks { get; set; }
+        int MaxHistoricDayNumber { get; set; }
+        IEnumerable<TasksTask> CoolTasks { get; set; }
+        IEnumerable<TasksTask> WarningTasks { get; set; }
+        IEnumerable<TasksTask> OverdueTasks { get; set; }
+        IEnumerable<TasksTask> DoneTasks { get; set; }
     }
 }

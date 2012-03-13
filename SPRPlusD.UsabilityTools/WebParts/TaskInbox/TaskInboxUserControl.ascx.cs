@@ -8,8 +8,17 @@ namespace SPRPlusD.UsabilityTools.WebControls.TaskInbox
     {
         #region [Event Hanlders]
 
+        TaskInboxPresenter _Presenter;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
+                
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            _Presenter = new TaskInboxPresenter(this);
+            _Presenter.HandleLoad();
         }
 
         #endregion
@@ -28,11 +37,16 @@ namespace SPRPlusD.UsabilityTools.WebControls.TaskInbox
             set;
         }
 
-        public System.Collections.Generic.IEnumerable<DAL.Task> CoolTasks
+        public int MaxHistoricDayNumber { 
+            get; 
+            set;
+        }
+
+        public System.Collections.Generic.IEnumerable<DAL.TasksTask> CoolTasks
         {
             get
             {
-                return rpt_CoolTasks.DataSource as System.Collections.Generic.IEnumerable<DAL.Task>;
+                return rpt_CoolTasks.DataSource as System.Collections.Generic.IEnumerable<DAL.TasksTask>;
             }
             set
             {
@@ -41,11 +55,11 @@ namespace SPRPlusD.UsabilityTools.WebControls.TaskInbox
             }
         }
 
-        public System.Collections.Generic.IEnumerable<DAL.Task> WarningTasks
+        public System.Collections.Generic.IEnumerable<DAL.TasksTask> WarningTasks
         {
             get
             {
-                return rpt_WarningTasks.DataSource as System.Collections.Generic.IEnumerable<DAL.Task>;
+                return rpt_WarningTasks.DataSource as System.Collections.Generic.IEnumerable<DAL.TasksTask>;
             }
             set
             {
@@ -54,11 +68,11 @@ namespace SPRPlusD.UsabilityTools.WebControls.TaskInbox
             }
         }
 
-        public System.Collections.Generic.IEnumerable<DAL.Task> OverdueTasks
+        public System.Collections.Generic.IEnumerable<DAL.TasksTask> OverdueTasks
         {
             get
             {
-                return rpt_OverdueTasks.DataSource as System.Collections.Generic.IEnumerable<DAL.Task>;
+                return rpt_OverdueTasks.DataSource as System.Collections.Generic.IEnumerable<DAL.TasksTask>;
             }
             set
             {
@@ -67,11 +81,11 @@ namespace SPRPlusD.UsabilityTools.WebControls.TaskInbox
             }
         }
 
-        public System.Collections.Generic.IEnumerable<DAL.Task> DoneTasks
+        public System.Collections.Generic.IEnumerable<DAL.TasksTask> DoneTasks
         {
             get
             {
-                return rpt_DoneTasks.DataSource as System.Collections.Generic.IEnumerable<DAL.Task>;
+                return rpt_DoneTasks.DataSource as System.Collections.Generic.IEnumerable<DAL.TasksTask>;
             }
             set
             {

@@ -9,18 +9,18 @@ namespace SPRPlusD.UsabilityTools.BLL
 {
     public class TasksBLL
     {
-        public static IEnumerable<Task> GetDoneTasks(int maxHistoryDays, string siteUrl)
+        public static IEnumerable<TasksTask> GetDoneTasks(int maxHistoryDays, string siteUrl)
         {
             IEnumerable<SPListDTO> taskLists = SiteBLL.GetSiteTaskLists();
-            IEnumerable<Task> foundTasks = null;
+            IEnumerable<TasksTask> foundTasks = null;
             using (RDDataContext dtctx = new RDDataContext(siteUrl))
             {
                 if (maxHistoryDays == 0)
                 {
                     foreach (SPListDTO currentSPListDTO in taskLists)
                     {
-                        foundTasks = foundTasks == null ? dtctx.GetList<Task>(currentSPListDTO.DisplayName).Where(task => task.TaskStatus == TaskStatus.Completed)
-                            : foundTasks.Union(dtctx.GetList<Task>(currentSPListDTO.DisplayName).Where(task => task.TaskStatus == TaskStatus.Completed));
+                        foundTasks = foundTasks == null ? dtctx.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(task => task.TaskStatus == TaskStatus.Completed)
+                            : foundTasks.Union(dtctx.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(task => task.TaskStatus == TaskStatus.Completed));
                     }
                 }
                 else
@@ -28,9 +28,9 @@ namespace SPRPlusD.UsabilityTools.BLL
                     DateTime maxHistoryDate = DateTime.Now.AddDays(-maxHistoryDays).Date;
                     foreach (SPListDTO currentSPListDTO in taskLists)
                     {
-                        foundTasks = foundTasks == null ? dtctx.GetList<Task>(currentSPListDTO.DisplayName).Where(task => task.TaskStatus == TaskStatus.Completed
+                        foundTasks = foundTasks == null ? dtctx.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(task => task.TaskStatus == TaskStatus.Completed
                             && task.StartDate > maxHistoryDate)
-                            : foundTasks.Union(dtctx.GetList<Task>(currentSPListDTO.DisplayName).Where(task => task.TaskStatus == TaskStatus.Completed
+                            : foundTasks.Union(dtctx.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(task => task.TaskStatus == TaskStatus.Completed
                             && task.StartDate > maxHistoryDate));
                     }
                 }
@@ -38,10 +38,10 @@ namespace SPRPlusD.UsabilityTools.BLL
             return foundTasks;
         }
 
-        public static IEnumerable<Task> GetPendigCoolTasks(int coolOffsetDayCount, int warningOffsetDayCount, string siteUrl)
+        public static IEnumerable<TasksTask> GetPendigCoolTasks(int coolOffsetDayCount, int warningOffsetDayCount, string siteUrl)
         {
             IEnumerable<SPListDTO> taskLists = SiteBLL.GetSiteTaskLists();
-            IEnumerable<Task> foundTasks = null;
+            IEnumerable<TasksTask> foundTasks = null;
             DateTime coolOffsetDate;
             using (RDDataContext dtxtc = new RDDataContext(siteUrl))
             {
@@ -53,19 +53,19 @@ namespace SPRPlusD.UsabilityTools.BLL
                 else { coolOffsetDate = DateTime.Now.Date.AddDays(1); }
                 foreach (SPListDTO currentSPListDTO in taskLists)
                 {
-                    foundTasks = foundTasks == null ? dtxtc.GetList<Task>(currentSPListDTO.DisplayName).Where(
+                    foundTasks = foundTasks == null ? dtxtc.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(
                         task => task.DueDate == null || task.DueDate >= coolOffsetDate)
-                        : foundTasks.Union(dtxtc.GetList<Task>(currentSPListDTO.DisplayName).Where(
+                        : foundTasks.Union(dtxtc.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(
                             task => task.DueDate == null || task.DueDate >= coolOffsetDate));
                 }
             }
             return foundTasks;
         }
 
-        public static IEnumerable<Task> GetPendingWarningTasks(int coolOffsetDayCount, int warningOffsetDayCount, string siteUrl)
+        public static IEnumerable<TasksTask> GetPendingWarningTasks(int coolOffsetDayCount, int warningOffsetDayCount, string siteUrl)
         {
             IEnumerable<SPListDTO> taskLists = SiteBLL.GetSiteTaskLists();
-            IEnumerable<Task> foundTasks = null;
+            IEnumerable<TasksTask> foundTasks = null;
 
             using (RDDataContext dtxtc = new RDDataContext(siteUrl))
             {
@@ -76,9 +76,9 @@ namespace SPRPlusD.UsabilityTools.BLL
                     DateTime warningOffsetDate = DateTime.Now.Date.AddDays(warningOffsetDayCount);
                     foreach (SPListDTO currentSPListDTO in taskLists)
                     {
-                        foundTasks = foundTasks == null ? dtxtc.GetList<Task>(currentSPListDTO.DisplayName).Where(
+                        foundTasks = foundTasks == null ? dtxtc.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(
                             task => task.DueDate != null && (task.DueDate >= warningOffsetDate && task.DueDate < coolOffsetDate))
-                            : foundTasks.Union(dtxtc.GetList<Task>(currentSPListDTO.DisplayName).Where(
+                            : foundTasks.Union(dtxtc.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(
                                 task => task.DueDate != null && (task.DueDate >= warningOffsetDate && task.DueDate < coolOffsetDate)));
                     }
                 }
@@ -87,10 +87,10 @@ namespace SPRPlusD.UsabilityTools.BLL
             return foundTasks;
         }
 
-        public static IEnumerable<Task> GetPendingOverdueTasks(int coolOffsetDayCount, int warningOffsetDayCount, string siteUrl)
+        public static IEnumerable<TasksTask> GetPendingOverdueTasks(int coolOffsetDayCount, int warningOffsetDayCount, string siteUrl)
         {
             IEnumerable<SPListDTO> taskLists = SiteBLL.GetSiteTaskLists();
-            IEnumerable<Task> foundTasks = null;
+            IEnumerable<TasksTask> foundTasks = null;
             DateTime warningOffsetDate;
             using (RDDataContext dtxtc = new RDDataContext(siteUrl))
             {
@@ -105,9 +105,9 @@ namespace SPRPlusD.UsabilityTools.BLL
                 }
                 foreach (SPListDTO currentSPListDTO in taskLists)
                 {
-                    foundTasks = foundTasks == null ? dtxtc.GetList<Task>(currentSPListDTO.DisplayName).Where(task => task.DueDate != null
+                    foundTasks = foundTasks == null ? dtxtc.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(task => task.DueDate != null
                             && (task.DueDate < warningOffsetDate && task.TaskStatus != TaskStatus.Completed))
-                        : foundTasks.Union(dtxtc.GetList<Task>(currentSPListDTO.DisplayName).Where(task => task.DueDate != null
+                        : foundTasks.Union(dtxtc.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(task => task.DueDate != null
                             && (task.DueDate < warningOffsetDate && task.TaskStatus != TaskStatus.Completed)));
                 }
 

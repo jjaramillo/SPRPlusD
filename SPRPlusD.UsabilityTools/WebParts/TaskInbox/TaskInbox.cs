@@ -26,6 +26,12 @@ namespace SPRPlusD.UsabilityTools.WebParts.TaskInbox
          Personalizable(PersonalizationScope.Shared)]
         public int CoolDayNumber { get; set; }
 
+        [WebBrowsable(true), Category("Rangos de Fechas"),
+         WebDisplayName("Número de dias Histórico"),
+         WebDescription("Contiene el número de días en el cual se recuperan tareas que ya han sido finalizadas.'"),
+         Personalizable(PersonalizationScope.Shared)]
+        public int MaxHistoricDayNumber { get; set; }
+
         // Visual Studio might automatically update this path when you change the Visual Web Part project item.
         private const string _ascxPath = @"~/_CONTROLTEMPLATES/SPRPlusD.UsabilityTools.WebParts/TaskInbox/TaskInboxUserControl.ascx";
         private const string _ascxConfigPath = @"~/_CONTROLTEMPLATES/SPRPlusD.UsabilityTools.WebParts/TaskInbox/TaskInboxConfigUserControl.ascx";
@@ -43,6 +49,7 @@ namespace SPRPlusD.UsabilityTools.WebParts.TaskInbox
                 TaskInboxUserControl ctrl = Page.LoadControl(_ascxPath) as TaskInboxUserControl;
                 ctrl.CoolDayNumber = CoolDayNumber;
                 ctrl.WarningDayNumber = WarningDayNumber;
+                ctrl.MaxHistoricDayNumber = MaxHistoricDayNumber;
                 return ctrl;
             }
             else { return Page.LoadControl(_ascxConfigPath); }

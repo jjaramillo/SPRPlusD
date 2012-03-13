@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="c2b95d90-054f-41e4-98b2-e0fec4913c31" solutionId="c2b95d90-054f-41e4-98b2-e0fec4913c31" resetWebServer="false" name="SPRPlusD.UsabilityTools" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="SPRPlusD.DAL.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\SPRPlusD.DAL\SPRPlusD.DAL.csproj" />
+  </assemblies>
   <features>
     <featureReference itemId="70df2935-d783-44bf-aa9a-5fc69a6cf2cc" />
   </features>
