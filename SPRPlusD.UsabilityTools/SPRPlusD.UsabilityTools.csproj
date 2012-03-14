@@ -139,8 +139,6 @@
     <Content Include="INC\SPRPlusD.UsabilityTools\img\10.gif" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\11.gif" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\12.gif" />
-    <None Include="INC\SPRPlusD.UsabilityTools\img\arrow_large_down.png.bak" />
-    <None Include="INC\SPRPlusD.UsabilityTools\img\arrow_large_up.png.bak" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\arrow_large_down.png" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\arrow_large_up.png" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\calendar-due-date.png" />
