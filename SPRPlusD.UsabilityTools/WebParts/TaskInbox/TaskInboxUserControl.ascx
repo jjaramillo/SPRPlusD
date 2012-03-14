@@ -13,7 +13,11 @@
     rel='stylesheet' type='text/css' />
 <link href='/_layouts/inc/SPRPlusD.UsabilityTools/css/SPRPlusD.UsabilityTools.TaskInbox.debug.css'
     rel='stylesheet' type='text/css' />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link href='/_layouts/inc/SPRPlusD.UsabilityTools/css/jquery.jscrollpane.css' rel='stylesheet'
+    type='text/css' />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+<script type="text/javascript" src="/_layouts/inc/SPRPlusD.UsabilityTools/scripts/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="/_layouts/inc/SPRPlusD.UsabilityTools/scripts/jquery.jscrollpane.min.js"></script>
 <asp:ScriptManagerProxy runat="server" ID="smngproxy">
     <Scripts>
         <asp:ScriptReference Path="~/_layouts/inc/SPRPlusD.UsabilityTools/scripts/SPRPlusD.UsabilityTools.TaskInbox.debug.js" />
@@ -22,6 +26,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         SPRPlusD.UsabilityTools.TaskInbox.initialize();
+        $('.jspDrag').css({ opacity: 0.3 });
     })
 </script>
 <div id="inbox">
@@ -45,17 +50,32 @@
                     <asp:Repeater runat="server" ID="rpt_CoolTasks">
                         <ItemTemplate>
                             <div class="task">
-                                <div class='calendar calendar-icon-<%#Eval("StartDate", "{0:MM}") %>'>
+                                <div class="start-date left">
+                                    <span class="month"><%#Eval("StartDate", "{0:MMM}") %></span>
+                                    <span class="day"><%#Eval("StartDate", "{0:dd}") %></span>
+                                </div>
+                                <%--<div class='calendar calendar-icon-<%#Eval("StartDate", "{0:MM}") %>'>
                                     <div class="calendar-day">
                                         <%#Eval("StartDate", "{0:dd}") %>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <h3>
-                                    <asp:Literal runat="server" Text='<%#Bind("Title") %>' ID="ltr_Title"></asp:Literal></h3>
+                                    <asp:Literal runat="server" Text='<%#Bind("Title") %>' ID="ltr_Title"></asp:Literal>
+                                </h3>
+                                <div class="overdue-date right">
+                                    <span class="month"><%#Eval("DueDate", "{0:MMM}") %></span>
+                                    <span class="day"><%#Eval("DueDate", "{0:dd}") %></span>
+                                </div>
                                 <p>
-                                    <asp:Literal runat="server" ID="ltrl_description" Text='<%#Bind("Body") %>'></asp:Literal></p>
+                                    Esta tarea tiene prioridad
+                                    <asp:Literal runat="server" ID="ltrlPriority" Text='<%#Bind("Priority") %>' /><br />
+                                    Se encuentra en estado
+                                    <asp:Literal runat="server" ID="ltrlStatus" Text='<%#Bind("TaskStatus") %>' />
+                                    (<asp:Literal runat="server" ID="ltrlPercentage" Text='<%# Eval("Complete") == null? "0.0 %" : Eval("Complete", "{0:#0.0 %}") %>' />
+                                    Completado)
+                                </p>
                                 <p>
-                                    <asp:Literal runat="server" ID="ltr_DueDate" Text='<%# Eval("DueDate") == null ? "Esta tarea no tiene fecha de vencimiento" : Eval("DueDate", "{0: E\\s\\ta \\tarea \\debe e\\s\\tar \\finali\\za\\da an\\te\\s \\del dd \\de MMMM}")  %>' />
+                                    <asp:Literal runat="server" ID="ltrl_description" Text='<%#Bind("Body") %>'></asp:Literal>
                                 </p>
                             </div>
                         </ItemTemplate>
@@ -64,7 +84,34 @@
                 <div id="warning" class="warning">
                     <asp:Repeater runat="server" ID="rpt_WarningTasks">
                         <ItemTemplate>
-                            <div>
+                            <div class="task">
+                                <div class="start-date left">
+                                    <span class="month"><%#Eval("StartDate", "{0:MMM}") %></span>
+                                    <span class="day"><%#Eval("StartDate", "{0:dd}") %></span>
+                                </div>
+                                <%--<div class='calendar calendar-icon-<%#Eval("StartDate", "{0:MM}") %>'>
+                                    <div class="calendar-day">
+                                        <%#Eval("StartDate", "{0:dd}") %>
+                                    </div>
+                                </div>--%>
+                                <h3>
+                                    <asp:Literal runat="server" Text='<%#Bind("Title") %>' ID="ltr_Title"></asp:Literal>
+                                </h3>
+                                <div class="overdue-date right">
+                                    <span class="month"><%#Eval("DueDate", "{0:MMM}") %></span>
+                                    <span class="day"><%#Eval("DueDate", "{0:dd}") %></span>
+                                </div>
+                                <p>
+                                    Esta tarea tiene prioridad
+                                    <asp:Literal runat="server" ID="ltrlPriority" Text='<%#Bind("Priority") %>' /><br />
+                                    Se encuentra en estado
+                                    <asp:Literal runat="server" ID="ltrlStatus" Text='<%#Bind("TaskStatus") %>' />
+                                    (<asp:Literal runat="server" ID="ltrlPercentage" Text='<%# Eval("Complete") == null? "0.0 %" : Eval("Complete", "{0:#0.0 %}") %>' />
+                                    Completado)
+                                </p>
+                                <p>
+                                    <asp:Literal runat="server" ID="ltrl_description" Text='<%#Bind("Body") %>'></asp:Literal>
+                                </p>                                
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -72,7 +119,34 @@
                 <div id="overdue" class="overdue">
                     <asp:Repeater runat="server" ID="rpt_OverdueTasks">
                         <ItemTemplate>
-                            <div>
+                            <div class="task">
+                                <div class="start-date left">
+                                    <span class="month"><%#Eval("StartDate", "{0:MMM}") %></span>
+                                    <span class="day"><%#Eval("StartDate", "{0:dd}") %></span>
+                                </div>
+                                <%--<div class='calendar calendar-icon-<%#Eval("StartDate", "{0:MM}") %>'>
+                                    <div class="calendar-day">
+                                        <%#Eval("StartDate", "{0:dd}") %>
+                                    </div>
+                                </div>--%>
+                                <h3>
+                                    <asp:Literal runat="server" Text='<%#Bind("Title") %>' ID="ltr_Title"></asp:Literal>
+                                </h3>
+                                <div class="overdue-date right">
+                                    <span class="month"><%#Eval("DueDate", "{0:MMM}") %></span>
+                                    <span class="day"><%#Eval("DueDate", "{0:dd}") %></span>
+                                </div>
+                                <p>
+                                    Esta tarea tiene prioridad
+                                    <asp:Literal runat="server" ID="ltrlPriority" Text='<%#Bind("Priority") %>' /><br />
+                                    Se encuentra en estado
+                                    <asp:Literal runat="server" ID="ltrlStatus" Text='<%#Bind("TaskStatus") %>' />
+                                    (<asp:Literal runat="server" ID="ltrlPercentage" Text='<%# Eval("Complete") == null? "0.0 %" : Eval("Complete", "{0:#0.0 %}") %>' />
+                                    Completado)
+                                </p>
+                                <p>
+                                    <asp:Literal runat="server" ID="ltrl_description" Text='<%#Bind("Body") %>'></asp:Literal>
+                                </p>                                
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -80,7 +154,34 @@
                 <div id="done" class="done">
                     <asp:Repeater runat="server" ID="rpt_DoneTasks">
                         <ItemTemplate>
-                            <div>
+                            <div class="task">
+                                <div class="start-date left">
+                                    <span class="month"><%#Eval("StartDate", "{0:MMM}") %></span>
+                                    <span class="day"><%#Eval("StartDate", "{0:dd}") %></span>
+                                </div>
+                                <%--<div class='calendar calendar-icon-<%#Eval("StartDate", "{0:MM}") %>'>
+                                    <div class="calendar-day">
+                                        <%#Eval("StartDate", "{0:dd}") %>
+                                    </div>
+                                </div>--%>
+                                <h3>
+                                    <asp:Literal runat="server" Text='<%#Bind("Title") %>' ID="ltr_Title"></asp:Literal>
+                                </h3>
+                                <div class="overdue-date right">
+                                    <span class="month"><%#Eval("DueDate", "{0:MMM}") %></span>
+                                    <span class="day"><%#Eval("DueDate", "{0:dd}") %></span>
+                                </div>
+                                <p>
+                                    Esta tarea tiene prioridad
+                                    <asp:Literal runat="server" ID="ltrlPriority" Text='<%#Bind("Priority") %>' /><br />
+                                    Se encuentra en estado
+                                    <asp:Literal runat="server" ID="ltrlStatus" Text='<%#Bind("TaskStatus") %>' />
+                                    (<asp:Literal runat="server" ID="ltrlPercentage" Text='<%# Eval("Complete") == null? "0.0 %" : Eval("Complete", "{0:#0.0 %}") %>' />
+                                    Completado)
+                                </p>
+                                <p>
+                                    <asp:Literal runat="server" ID="ltrl_description" Text='<%#Bind("Body") %>'></asp:Literal>
+                                </p>                                
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>

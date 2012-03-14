@@ -125,6 +125,7 @@
     <Content Include="Features\SPRPlusD UsabilityTools\SPRPlusD UsabilityTools.Template.xml">
       <DependentUpon>SPRPlusD UsabilityTools.feature</DependentUpon>
     </Content>
+    <Content Include="INC\SPRPlusD.UsabilityTools\css\jquery.jscrollpane.css" />
     <Content Include="INC\SPRPlusD.UsabilityTools\css\SPRPlusD.UsabilityTools.TaskInbox.debug.css" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\01.gif" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\02.gif" />
@@ -138,7 +139,14 @@
     <Content Include="INC\SPRPlusD.UsabilityTools\img\10.gif" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\11.gif" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\12.gif" />
+    <None Include="INC\SPRPlusD.UsabilityTools\img\arrow_large_down.png.bak" />
+    <None Include="INC\SPRPlusD.UsabilityTools\img\arrow_large_up.png.bak" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\arrow_large_down.png" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\arrow_large_up.png" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\calendar-due-date.png" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\task.png" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\scripts\jquery.jscrollpane.min.js" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\scripts\jquery.mousewheel.js" />
     <Content Include="INC\SPRPlusD.UsabilityTools\scripts\SPRPlusD.UsabilityTools.TaskInbox.debug.js" />
     <Content Include="WebParts\TaskInbox\Elements.xml" />
     <Content Include="WebParts\TaskInbox\TaskInboxUserControl.ascx">

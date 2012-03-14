@@ -80,6 +80,8 @@
 {
     width: 100%;
     min-height: 50px;
+    max-height: 605px;
+    overflow: hidden;
 }
 .hidden
 {
@@ -270,8 +272,10 @@
 .task h3
 {
     margin-top: 0px;
-    font-family: 'Allerta',Helvetica,Arial,sans-serif !important;
+    font-family: 'Allerta' ,Helvetica,Arial,sans-serif !important;
     padding-top: 5px;
+    max-width:525px;
+    display:inline-block;
 }
 
 .task .calendar
@@ -339,3 +343,38 @@
     padding-top: 6px;
     font-family: 'Annie Use Your Telescope' , cursive;
 }
+
+.task .overdue-date, .task .start-date
+{
+    background-image: url('../img/calendar-due-date.png');
+    width: 64px;
+    height: 64px;
+    background-repeat: no-repeat;
+}
+.task .overdue-date .month, .task .start-date .month
+{
+    display: block;
+    font-size: 0.8em;
+    padding-top: 8px;
+    text-align: center;
+}
+.task .overdue-date .day, .task .start-date .day
+{
+    color: #000000;
+    display: block;
+    font-family: 'Annie Use Your Telescope',cursive;
+    font-size: 2em;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    top: -16px;
+    width: 64px;
+}
+
+.task p
+{
+    line-height: 20px !important;
+}
+
+.task .right{float:right;}
+.task .left{float:left;}

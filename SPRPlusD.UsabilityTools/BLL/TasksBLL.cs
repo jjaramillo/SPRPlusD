@@ -54,9 +54,9 @@ namespace SPRPlusD.UsabilityTools.BLL
                 foreach (SPListDTO currentSPListDTO in taskLists)
                 {
                     foundTasks = foundTasks == null ? dtxtc.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(
-                        task => task.DueDate == null || task.DueDate >= coolOffsetDate)
+                        task => task.TaskStatus != TaskStatus.Completed && (task.DueDate == null || task.DueDate >= coolOffsetDate))
                         : foundTasks.Union(dtxtc.GetList<TasksTask>(currentSPListDTO.DisplayName).Where(
-                            task => task.DueDate == null || task.DueDate >= coolOffsetDate));
+                            task => task.TaskStatus != TaskStatus.Completed && (task.DueDate == null || task.DueDate >= coolOffsetDate)));
                 }
             }
             return foundTasks;

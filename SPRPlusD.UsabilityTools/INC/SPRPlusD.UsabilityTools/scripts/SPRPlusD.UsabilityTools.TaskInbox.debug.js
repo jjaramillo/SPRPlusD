@@ -35,9 +35,10 @@ SPRPlusD.UsabilityTools.TaskInbox.initialize = function () {
     tabs.find('a').each(function (index) {
         var currenttabtrigger = $(this);
         var targettab = $(currenttabtrigger.attr('href'));
+        targettab.jScrollPane({ showArrows: true });
         currenttabtrigger.click(function () {
             targettab.show();
-            currentselectedtab.hide();
+            if (currentselectedtab != targettab) { currentselectedtab.hide(); }
             currentselectedtab = targettab;
         });
         if (index === 0) { currentselectedtab = targettab; }
