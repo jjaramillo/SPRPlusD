@@ -9,7 +9,7 @@
     Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TaskInboxUserControl.ascx.cs"
     Inherits="SPRPlusD.UsabilityTools.WebControls.TaskInbox.TaskInboxUserControl" %>
-<link href='http://fonts.googleapis.com/css?family=Allerta|Crimson+Text|Prosto+One&subset=latin,latin-ext'
+<link href='http://fonts.googleapis.com/css?family=Allerta|Crimson+Text|Prosto+One|Annie+Use+Your+Telescope&subset=latin,latin-ext'
     rel='stylesheet' type='text/css' />
 <link href='/_layouts/inc/SPRPlusD.UsabilityTools/css/SPRPlusD.UsabilityTools.TaskInbox.debug.css'
     rel='stylesheet' type='text/css' />
@@ -45,9 +45,18 @@
                     <asp:Repeater runat="server" ID="rpt_CoolTasks">
                         <ItemTemplate>
                             <div class="task">
-                                <h3><asp:Literal runat="server" Text='<%#Bind("Title") %>' ID="ltr_Title"></asp:Literal></h3>
-                                <p><asp:Literal runat="server" ID="ltrl_description"  Text='<%#Bind("Body") %>'></asp:Literal></p>
-                                <p>Esta tarea fue asignada el <asp:Literal runat="server" ID="ltr_StartDate" Text='<%#Bind("StartDate") %>'/> y vence el <asp:Literal runat="server" ID="ltr_DueDate" Text='<%#Bind("DueDate") %>'/></p>
+                                <div class='calendar calendar-icon-<%#Eval("StartDate", "{0:MM}") %>'>
+                                    <div class="calendar-day">
+                                        <%#Eval("StartDate", "{0:dd}") %>
+                                    </div>
+                                </div>
+                                <h3>
+                                    <asp:Literal runat="server" Text='<%#Bind("Title") %>' ID="ltr_Title"></asp:Literal></h3>
+                                <p>
+                                    <asp:Literal runat="server" ID="ltrl_description" Text='<%#Bind("Body") %>'></asp:Literal></p>
+                                <p>
+                                    <asp:Literal runat="server" ID="ltr_DueDate" Text='<%# Eval("DueDate") == null ? "Esta tarea no tiene fecha de vencimiento" : Eval("DueDate", "{0: E\\s\\ta \\tarea \\debe e\\s\\tar \\finali\\za\\da an\\te\\s \\del dd \\de MMMM}")  %>' />
+                                </p>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>

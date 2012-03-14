@@ -5,7 +5,7 @@
     top: 0;
     height: 100%;
     font: calibri;
-    z-index:99;
+    z-index: 99;
 }
 #inbox h1
 {
@@ -46,18 +46,15 @@
 {
     position: fixed;
     top: 50%;
-    color: white;
-    /*border-color: white;
-    border-width: 2px;
-    border-style: solid;*/
+    color: white; /*border-color: white;     border-width: 2px;     border-style: solid;*/
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
     cursor: pointer;
-    font-family:  'Allerta' , Helvetica, Arial, sans-serif !important;
-    font-size:30px;
+    font-family: 'Allerta' , Helvetica, Arial, sans-serif !important;
+    font-size: 30px;
     background-color: #393939;
     background-image: -moz-linear-gradient(center top , #454545, #262626);
     background-repeat: repeat-x;
@@ -66,8 +63,8 @@
     border-style: solid;
     border-width: 1px 1px 0 1px;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
-    min-width:300px;
-    text-align:center;
+    min-width: 300px;
+    text-align: center;
 }
 #task-categories-tabs
 {
@@ -266,11 +263,79 @@
 }
 .task
 {
-    padding:10px;
-    font-size:20px;
+    padding: 10px;
+    font-size: 20px;
 }
 
 .task h3
 {
-    margin-top:0px;
+    margin-top: 0px;
+    font-family: 'Allerta',Helvetica,Arial,sans-serif !important;
+    padding-top: 5px;
+}
+
+.task .calendar
+{
+    float: left;
+    margin-right: 6px;
+    width: 42px;
+    height: 42px;
+}
+.task .calendar-icon-01
+{
+    background: url('../img/01.gif');
+}
+.task .calendar-icon-02
+{
+    background: url('../img/02.gif');
+}
+.task .calendar-icon-03
+{
+    background: url('../img/03.gif');
+}
+.task .calendar-icon-04
+{
+    background: url('../img/04.gif');
+}
+.task .calendar-icon-05
+{
+    background: url('../img/05.gif');
+}
+.task .calendar-icon-06
+{
+    background: url('../img/06.gif');
+}
+.task .calendar-icon-07
+{
+    background: url('../img/07.gif');
+}
+.task .calendar-icon-08
+{
+    background: url('../img/08.gif');
+}
+.task .calendar-icon-09
+{
+    background: url('../img/09.gif');
+}
+.task .calendar-icon-10
+{
+    background: url('../img/10.gif');
+}
+.task .calendar-icon-11
+{
+    background: url('../img/11.gif');
+}
+.task .calendar-icon-12
+{
+    background: url('../img/12.gif');
+}
+
+.task .calendar .calendar-day
+{
+    font-size: 1.3em;
+    color: #000;
+    width: 42px;
+    text-align: center;
+    padding-top: 6px;
+    font-family: 'Annie Use Your Telescope' , cursive;
 }

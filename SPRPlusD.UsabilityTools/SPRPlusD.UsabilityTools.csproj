@@ -126,10 +126,18 @@
       <DependentUpon>SPRPlusD UsabilityTools.feature</DependentUpon>
     </Content>
     <Content Include="INC\SPRPlusD.UsabilityTools\css\SPRPlusD.UsabilityTools.TaskInbox.debug.css" />
-    <Content Include="INC\SPRPlusD.UsabilityTools\img\tab_b.png" />
-    <Content Include="INC\SPRPlusD.UsabilityTools\img\tab_l.png" />
-    <Content Include="INC\SPRPlusD.UsabilityTools\img\tab_m.png" />
-    <Content Include="INC\SPRPlusD.UsabilityTools\img\tab_r.png" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\01.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\02.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\03.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\04.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\05.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\06.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\07.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\08.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\09.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\10.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\11.gif" />
+    <Content Include="INC\SPRPlusD.UsabilityTools\img\12.gif" />
     <Content Include="INC\SPRPlusD.UsabilityTools\img\task.png" />
     <Content Include="INC\SPRPlusD.UsabilityTools\scripts\SPRPlusD.UsabilityTools.TaskInbox.debug.js" />
     <Content Include="WebParts\TaskInbox\Elements.xml" />
